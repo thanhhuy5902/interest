@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "imago",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

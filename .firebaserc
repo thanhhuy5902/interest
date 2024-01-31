@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "itss-imago-0000": {
+      "hosting": {
+        "imago": [
+          "itss-imago-0000"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "itss-imago-0000"
+  }
+}
