@@ -55,5 +55,5 @@ const TaigaModules = [TuiTabsModule,
   ],
 })
 
-export class TaigaSharedModule {
+export class TaigaModule {
 }
