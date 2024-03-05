@@ -1,1 +1,70 @@
-<p>interest works!</p>
+<div class="container">
+    <div class="allCarousel">
+        <div class="wrapper">
+            <div class="content">
+                <p class="first-content">Your <b> inclinations</b></p>
+                <div class="second-content">
+                    <p>Select categories which you want to</p>
+                    <p>explore on your own.</p>
+                    <p>Sellected: {{ this.usersellected }}/5</p>
+                </div>
+            </div>
+            <div tuiCarouselButtons class="g1">
+                <button appearance="custom" icon="tuiIconChevronLeftLarge" title="Previous" tuiIconButton type="button"
+                    class="carousel-prev" (click)="carousel.prev()"></button>
+
+                <tui-carousel #carousel class="carousel">
+                    @for (itemArray of iterested2; track itemArray; let i = $index) {
+                    <div class="list-card" *tuiItem>
+                        @for (item of itemArray; track item; let j = $index) {
+                        @if (item.backgroundColor) {
+                        <div class="card" style="background-color: black" (click)="changeBackground(item)">
+                            <div class="check-icon">
+                                <tui-svg src="tuiIconCheckCircle"></tui-svg>
+                            </div>
+                            <div class="obacity-card">
+                                <p>
+                                    {{ item.name }}
+                                </p>
+                            </div>
+
+                            <div class="image-content">
+                                <img class="image" src="{{ item.backgroundUrl }}" alt="" />
+                            </div>
+                        </div>
+                        } @else {
+                        <div class="card">
+                            <div class="obacity-card">
+                                <p>
+                                    {{ item.name }}
+                                </p>
+                            </div>
+
+                            <div class="image-content" (click)="changeBackground(item)">
+                                <img class="image" src="{{ item.backgroundUrl }}" alt="" />
+                            </div>
+                        </div>
+                        }
+                        }
+                    </div>
+                    }
+                </tui-carousel>
+                <button appearance="custom" icon="tuiIconChevronRightLarge" title="Next" tuiIconButton type="button"
+                    class="carousel-next" (click)="carousel.next()"></button>
+            </div>
+
+            <div class="button-interest">
+                <button appearance="custom" tuiButton type="button" class="button-skip">
+                    Skip
+                </button>
+                <button appearance="custom" tuiButton type="button" class="button-next">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- [ngStyle]="{
+    'background-image': 'url(' + item.backgroundUrl + ')'
+  }" -->

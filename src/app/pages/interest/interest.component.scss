@@ -1,0 +1,206 @@
+
+.container{
+    background-image: url('../../../assets/image/Categories.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.allCarousel{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    margin-left: 5.5rem;
+    display: flex;
+    height: 6rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    
+    .first-content{
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        color: rgb(11, 11, 11);
+        font-size: 1.7rem;
+    }
+   .second-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p{
+       
+        margin: 0;
+        padding: 0;
+        color: rgb(11, 11, 11);
+        font-size: 0.9rem;
+    }
+        
+    }
+
+    b{
+        color: rgb(255, 19, 19);
+
+    }
+}
+
+
+.wrapper{
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255);
+    padding: 0.5rem;
+   
+
+    .button-interest{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: end;
+        margin-right: 5.4rem;
+
+        
+        .button-skip{
+            color: rgb(26, 26, 26);
+            background-color: rgb(240, 240, 240);
+            font-size: 0.9rem;
+            width: 4.5rem;
+            height: 2.5rem;
+            margin-right: 1rem;
+        }
+
+        .button-next{
+            background-color: rgb(26, 26, 26);
+            color: rgb(255, 255, 255);
+            font-size: 0.9rem;
+            width: 4.5rem;
+            height: 2.5rem;
+        }
+    }
+}
+.g1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 0.5rem;
+    width: 100%;
+
+    .carousel-prev{
+        background-color: rgb(26, 26, 26);
+        color: rgb(255, 255, 255);
+        margin-left: 1rem;
+      
+
+      
+    }
+    .carousel-next{
+        background-color: rgb(26, 26, 26);
+        color: rgb(255, 255, 255);
+        margin-right: 1rem;
+    }
+}
+.card{
+    width: 130px;
+    height: 130px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(224, 224, 224);
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    align-items: center;
+    // padding: 0.5rem;
+    
+    z-index: 0;
+   
+    
+
+    p{
+        color: rgb(0, 0, 0);
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .image-content{
+        width: 100%;
+        height: 100%;
+    
+        
+        opacity: 0.9;
+        cursor: pointer;
+        .image{
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    }
+    
+   
+}
+
+.list-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 0.6rem;
+
+    .check-icon{
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        justify-content: end;
+        z-index: 2;
+        width: 16%;
+        position: fixed;
+        height: 130px;
+        cursor: pointer;
+    }
+
+    .obacity-card{
+    
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+        justify-content: center;
+        z-index: 1;
+        width: 100%;
+        position: fixed;
+        // cursor: pointer;
+
+    }
+
+}
+.carousel{
+    width: 48.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.dialog{
+    width: 50%;
+    height: 50%;
+}

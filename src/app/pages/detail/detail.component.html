@@ -1,0 +1,161 @@
+<div class="container">
+    @for(item of items; track item){
+    <div class="detail-post">
+        <div class="detail-top">
+            <div class="user-infor">
+                <div class="user-avatar">
+                    <img src="{{item.userImage}}" alt="user-avatar" />
+                </div>
+                <div class="user-name">
+                    <p class="name">{{item.userName}}</p>
+                    <p class="date">{{item.date}}</p>
+                </div>
+            </div>
+
+            <div class="more-svg">
+                <!-- <tui-svg src="tuiIconMoreHorizontalLarge"></tui-svg> -->
+                <!-- <button iconRight="tuiIconMoreHorizontalLarge" tuiButton type="button" [tuiDropdown]="dropdownContent"
+                    [tuiDropdownManual]="open" (click)="onClick()" (tuiActiveZoneChange)="onActiveZone($event)"
+                    (tuiObscured)="onObscured($event)">
+
+                    <ng-template #dropdownContent>
+                        <div class="dropdown">But there is nothing to choose...</div>
+                    </ng-template>
+                </button> -->
+            </div>
+        </div>
+        <div class="detail-middle">
+            <tui-carousel [itemsCount]="1" [(index)]="index" #carousel>
+                @for(imageContent of item.contentImage; track imageContent){
+                <ng-container>
+                    <div *tuiItem class="detail-image">
+                        <div class="overlay">
+                            <img class="image" src="{{ imageContent}}" alt="" />
+                        </div>
+                    </div>
+                </ng-container>
+                }
+
+            </tui-carousel>
+            <tui-pagination size="s" class="tui-space_top-4" [index]="rounded"
+                [length]=" items[0].contentImage.length/ itemsCount" (indexChange)="onIndex($event)"></tui-pagination>
+        </div>
+
+        <div class="detail-bottom">
+            <div class="reaction">
+                <div class="reaction-left">
+
+                    <tui-svg class="icon" (click)="like(item.id)"
+                        [ngClass]="item.isLiked ? 'heartBtnActive' : 'heartBtn'" src="tuiIconHeartLarge"></tui-svg>
+                    <tui-svg class="icon" (click)="showDialog()" src="tuiIconMessageCircleLarge"></tui-svg>
+                </div>
+
+                <div class="reaction-right">
+                    <tui-svg class="icon" src="tuiIconShareLarge"></tui-svg>
+                </div>
+            </div>
+            <div class="content">
+                <p>
+                    @for(itemne of item.hagtag; track itemne){
+                    <span>#{{itemne}} </span>
+                    }
+                    {{item.content}}
+
+
+                </p>
+            </div>
+
+            <div class="comment">
+                <p class="view-comment">View all comments</p>
+
+                <div class="user-comment">
+                    <div class="user-avatar-comment">
+                        <img src="{{item.comments[0].userImage}}" alt="user-avatar" />
+                    </div>
+                    <div class="user-comment-content">
+                        <p class="name">{{item.comments[0].userName}}</p>
+                        <p class="content" [ngClass]="{ 'show-more': showMore }">
+                            {{ item.comments[0].content| slice: 0 : maxLength }}...<span
+                                (click)="showDialog()">more</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="all-comment-input">
+                    <div class="avatar-user-input">
+                        <img src="https://i.pinimg.com/564x/7f/83/be/7f83be1ab9a21560acea383417a0a13b.jpg"
+                            alt="user-avatar" />
+                    </div>
+                    <div class="comment-input">
+                        <input type="text" placeholder="Add a comment..." />
+                        <tui-svg class="icon" src="tuiIconSend"></tui-svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+</div>
+
+<ng-template let-observer [tuiDialogOptions]="{ size: 'l' }" [(tuiDialog)]="open" class="dialog">
+    @for(item of items; track item){
+    <div class="comment-top">
+        <div class="comment-top-user">
+            <div class="user-infor-comment">
+                <div class="user-avatar">
+                    <img src="{{ item.userImage }}" alt="user-avatar" />
+                </div>
+                <div class="user-name">
+                    <p class="name">{{item.userName}}</p>
+                    <p class="date">{{item.date}}</p>
+                </div>
+            </div>
+
+            <div class="more-svg">
+                <tui-svg src="tuiIconMoreHorizontalLarge"></tui-svg>
+            </div>
+        </div>
+        <div class="content">
+            <p>
+                @for(itemne of item.hagtag; track itemne){
+                <b>#{{itemne}} </b>
+                }
+                {{item.content}}
+            </p>
+        </div>
+    </div>
+
+    <div class="comment-middle">
+        <div class="comment">
+
+            @for (comment of item.comments; track comment) {
+            <div class="user-comment">
+                <div class="user-avatar-comment">
+                    <img src="{{ comment.userImage }}" alt="user-avatar" />
+                </div>
+                <div class="user-comment-content">
+                    <p class="name">{{ comment.userName }}</p>
+                    <p class="content">{{ comment.content }}</p>
+                </div>
+                <div class="icon-comment">
+                    <tui-svg class="icon" src="tuiIconHeart"></tui-svg>
+                </div>
+            </div>
+            }
+
+
+        </div>
+    </div>
+    <div class="comment-bottom">
+        <div class="all-comment-input">
+            <div class="avatar-user-input">
+                <img src="https://i.pinimg.com/564x/7f/83/be/7f83be1ab9a21560acea383417a0a13b.jpg" alt="user-avatar" />
+            </div>
+            <div class="comment-input">
+                <input type="text" placeholder="Add a comment..." />
+                <tui-svg class="icon" src="tuiIconSend"></tui-svg>
+            </div>
+        </div>
+    </div>
+    }
+</ng-template>

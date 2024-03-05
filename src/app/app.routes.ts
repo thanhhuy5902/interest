@@ -25,4 +25,10 @@ export const routes: Routes = [
         (m) => m.REGISTER_ROUTERS,
       ),
   },
+
+  {
+    path: 'detail',
+    loadChildren: () =>
+      import('./pages/detail/detail.routers').then((m) => m.DETAIL_ROUTERS),
+  }
 ];
